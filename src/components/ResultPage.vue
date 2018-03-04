@@ -10,7 +10,7 @@
 		<p>+1 Reputation</p>
 	</div>
 
-    <div v-else>
+    <div v-else-if="!success">
 		<!--Reputation should be pulled from server-->
 		<p>You blew it!</p>
 		<p>Frowney face</p>
@@ -25,12 +25,26 @@
 module.exports = {
     data: function () {
         return {
-            success: true
+			success: null
         }
     },
     mounted: function()
     {
-		
+		$.ajax(
+			{
+				//success goes from json to success variable yog
+				url: '',
+				method: 'GET',
+				success: function()
+				{
+
+				},
+				error: function()
+				{
+
+				}
+			}
+		)
     },
     methods: {
         

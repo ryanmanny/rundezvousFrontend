@@ -17,22 +17,52 @@ module.exports = {
         return {
             styleObject: {
                 color: 'red',
-                fontSize: '900'
+                fontSize: '14'
             },
-            time: 5
+            time: 5,
+            mac: null
         }
     },
     mounted: function()
     {    
         this.decrementTime();
+        this.mac = localStorage.getItem('mac');
     },
     methods: {
         accept: function() {
             alert("MEETING PAGE GOOOOOO");
+            //Post positive result to API
+            $.ajax(
+                {
+                    url: 'rundezvous.wsu.party/user/submit-meet-answer?mac=' + this.mac + '',
+                    method: 'POST',
+                    success: function()
+                    {
+
+                    },
+                    error: function()
+                    {
+
+                    }
+            })
             this.$emit("switch-view", "meeting-page");
         },
         deny: function() {
             alert("MAIN PAGE GOOOOOO");
+            //Post negative result to API
+            $.ajax(
+                {
+                    url: 'rundezvous.wsu.party/user/submit-meet-answer?mac=' + this.mac + '',
+                    method: 'POST',
+                    success: function()
+                    {
+
+                    },
+                    error: function()
+                    {
+
+                    }
+            })
             this.$emit("switch-view", "main-page");
         },
         decrementTime: function() {

@@ -6,7 +6,9 @@
     <title>rundezvous-frontend</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <component v-on:switch-view="changeView" :is="currentView"></component>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -7,11 +7,13 @@ import router from './router'
 import Blah from "./components/Blah.vue"
 
 import Blah2 from "./components/Blah2.vue"
+import GoPage from "./components/GoPage.vue"
 import EventBus from "./event-bus.js"
 
 
 Vue.component("blah", Blah);
 Vue.component("blah2", Blah2);
+Vue.component("go-page", GoPage);
 
 
 Vue.config.productionTip = false
@@ -22,7 +24,7 @@ new Vue({
   router,
   data () {
     return {
-      currentView: 'blah'
+      currentView: 'go-page'
     }
   },
   ready: function () {
